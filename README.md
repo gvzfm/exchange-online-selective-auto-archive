@@ -95,13 +95,13 @@ exchange-online-selective-auto-archive/
 ### Deployment
 
 ```powershell
-.\scripts\deploy-6month-archive.ps1
+.\scripts\deploy-6month-archive.ps1 -Users user1@domain.com,user2@domain.com
 ```
 
 ### Rollback
 
 ```powershell
-.\scripts\rollback-archive-policy.ps1
+.\scripts\rollback-archive-policy.ps1 -Users user1@domain.com,user2@domain.com
 ```
 ---
 

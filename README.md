@@ -1,15 +1,14 @@
 # Exchange Online – Selective 6-Month Auto Archive Policy
 
-🇹🇷 Türkçe açıklama aşağıdadır  
-🇬🇧 English description below
+TR / EN – Plain Markdown README
 
 ---
 
-## 🇬🇧 Overview
+## Overview (EN)
 
-This repository provides a **Microsoft-supported, production-safe solution**
-to automatically move emails older than **6 months (180 days)** to **Online Archive**
-for **selected users only** in Exchange Online.
+This repository provides a Microsoft-supported and production-safe solution
+to automatically move emails older than 6 months (180 days) to Online Archive
+for selected users only in Exchange Online.
 
 Key principles:
 - Default MRM Policy remains unchanged
@@ -18,47 +17,41 @@ Key principles:
 - No Outlook, New Outlook or OWA action required
 - No client-side archive operation needed
 
-This solution is based on **Exchange Online MRM (Messaging Records Management)**  
-and is fully supported by Microsoft.
+This solution is based on Exchange Online MRM
+(Messaging Records Management) and is fully supported by Microsoft.
 
 ---
 
-## 🇹🇷 Genel Bakış
+## Genel Bakis (TR)
 
-Bu repo, Exchange Online ortamında **sadece belirli kullanıcılar için**
-**6 ayı geçen e-postaların otomatik olarak Online Archive’a taşınmasını**
-sağlayan, **Microsoft tarafından desteklenen** bir çözüm sunar.
+Bu repo, Exchange Online ortaminda sadece belirli kullanicilar icin
+6 ayi gecen e-postalarin otomatik olarak Online Archive'a tasinmasini saglayan,
+Microsoft tarafindan desteklenen bir cozum sunar.
 
 Temel prensipler:
-- Default MRM Policy değiştirilmez
-- Sadece seçilen kullanıcılar etkilenir
-- Tamamen otomatik (sunucu tarafı)
-- Outlook / New Outlook / OWA üzerinden manuel işlem gerekmez
-- Kullanıcı bilgisayarında archive başlatmaya gerek yoktur
-
-Bu çözüm **Exchange Online MRM (Messaging Records Management)** altyapısını kullanır
-ve üretim ortamları için uygundur.
+- Default MRM Policy degistirilmez
+- Sadece secilen kullanicilar etkilenir
+- Tamamen otomatik (sunucu tarafi)
+- Outlook / New Outlook / OWA uzerinden manuel islem gerekmez
+- Kullanici bilgisayarinda archive baslatmaya gerek yoktur
 
 ---
 
-## Architecture / Mimari
+## Architecture
 
 Exchange Online
-│
-├─ Default MRM Policy
-│ └─ All standard users (unchanged)
-│
-└─ Default MRM Policy - 6AyAutoArchive
-└─ Selected users
-└─ Emails older than 180 days
-└─ Automatically moved to Online Archive
-
-yaml
-Kodu kopyala
+|
+|-- Default MRM Policy
+|   |-- Standard users (unchanged)
+|
+|-- Default MRM Policy - 6AyAutoArchive
+    |-- Selected users
+        |-- Mail older than 180 days
+            |-- Automatically moved to Online Archive
 
 ---
 
-## Prerequisites / Gereksinimler
+## Prerequisites
 
 - Exchange Online
 - Online Archive enabled for target users
@@ -67,87 +60,68 @@ Kodu kopyala
 
 ---
 
-## Solution Scope / Çözüm Kapsamı
-
-✔ Selective (user-based) auto archive  
-✔ Fully automatic background processing  
-✔ No impact on existing users  
-✔ Rollback supported  
-✔ New Outlook compatible  
-
-✖ Not using Microsoft Purview (by design)  
-✖ No client-side rules  
-
----
-
 ## Repository Structure
 
 exchange-online-selective-auto-archive/
-│
-├─ README.md
-├─ scripts/
-│ ├─ deploy-6month-archive.ps1
-│ └─ rollback-archive-policy.ps1
-│
-└─ docs/
-└─ common-errors.md
-
-yaml
-Kodu kopyala
+|
+|-- README.md
+|-- scripts/
+|   |-- deploy-6month-archive.ps1
+|   |-- rollback-archive-policy.ps1
+|
+|-- docs/
+    |-- common-errors.md
 
 ---
 
 ## Scripts
 
-### deploy-6month-archive.ps1
-
-Creates:
-- A 180-day MoveToArchive retention tag
-- A cloned retention policy based on Default MRM Policy
-- Assigns the policy to selected users
+deploy-6month-archive.ps1
+- Creates 180-day MoveToArchive retention tag
+- Clones Default MRM Policy
+- Assigns policy to selected users
 - Triggers Managed Folder Assistant
 
-### rollback-archive-policy.ps1
-
-- Reverts selected users back to Default MRM Policy
+rollback-archive-policy.ps1
+- Reverts users back to Default MRM Policy
 - No data loss
-- Safe to execute anytime
 
 ---
 
-## Usage / Kullanım
+## Usage
 
-### Deployment
-
-```powershell
-.\scripts\deploy-6month-archive.ps1
-Rollback
+Deployment:
 powershell
-Kodu kopyala
+.\scripts\deploy-6month-archive.ps1
+
+Rollback:
+powershell
 .\scripts\rollback-archive-policy.ps1
-Automation Details
-Managed Folder Assistant runs automatically
 
-Archive movement may take time depending on mailbox size
+---
 
-Optional manual trigger is included in deployment script
+## Automation Details
 
-This process is fully server-side.
+- Managed Folder Assistant runs automatically
+- Processing time depends on mailbox size
+- Fully server-side operation
 
-Common Errors / Sık Karşılaşılan Hatalar
-See documentation:
-📄 docs/common-errors.md
+---
 
-Important Notes
-Only one default MoveToArchive tag is allowed per retention policy
+## Common Errors
 
-Online Archive must be enabled per user
+See docs/common-errors.md
 
-Policy changes may take several hours to fully apply
+---
 
-License
+## Important Notes
+
+- Only one default MoveToArchive tag is allowed per retention policy
+- Online Archive must be enabled per user
+- Policy changes may take several hours
+
+---
+
+## License
+
 MIT License
-
-Author
-Created by an Exchange Online administrator
-for real-world production environments.

@@ -36,9 +36,9 @@ Temel prensipler:
 - Kullanici bilgisayarinda archive baslatmaya gerek yoktur
 
 ---
-
 ## Architecture
 
+```text
 Exchange Online
 |
 |-- Default MRM Policy
@@ -48,8 +48,7 @@ Exchange Online
     |-- Selected users
         |-- Mail older than 180 days
             |-- Automatically moved to Online Archive
-
----
+```
 
 ## Prerequisites
 

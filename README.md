@@ -77,16 +77,17 @@ exchange-online-selective-auto-archive/
 
 ## Scripts
 
-deploy-6month-archive.ps1
-- Creates 180-day MoveToArchive retention tag
+### Deploy Script
+- **File:** [deploy-6month-archive.ps1](scripts/deploy-6month-archive.ps1)
+- Creates a 180-day MoveToArchive retention tag
 - Clones Default MRM Policy
 - Assigns policy to selected users
 - Triggers Managed Folder Assistant
 
-rollback-archive-policy.ps1
+### Rollback Script
+- **File:** [rollback-archive-policy.ps1](scripts/rollback-archive-policy.ps1)
 - Reverts users back to Default MRM Policy
 - No data loss
-
 ---
 
 ## Usage
@@ -111,7 +112,9 @@ powershell
 
 ## Common Errors
 
-See docs/common-errors.md
+Detailed error handling and known issues are documented here:
+
+📄 **[docs/common-errors.md](docs/common-errors.md)**
 
 ---
 

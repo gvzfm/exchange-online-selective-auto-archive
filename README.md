@@ -61,6 +61,7 @@ Exchange Online
 
 ## Repository Structure
 
+```text
 exchange-online-selective-auto-archive/
 |
 |-- README.md
@@ -71,6 +72,7 @@ exchange-online-selective-auto-archive/
 |-- docs/
     |-- common-errors.md
 
+```
 ---
 
 ## Scripts

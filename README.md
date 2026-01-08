@@ -92,14 +92,17 @@ exchange-online-selective-auto-archive/
 
 ## Usage
 
-Deployment:
-powershell
+### Deployment
+
+```powershell
 .\scripts\deploy-6month-archive.ps1
+```
 
-Rollback:
-powershell
+### Rollback
+
+```powershell
 .\scripts\rollback-archive-policy.ps1
-
+```
 ---
 
 ## Automation Details
